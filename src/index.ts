@@ -57,7 +57,7 @@ function loadWidget(config: Config) {
         }
       }
     }
-    const text = `欢迎阅读<span>「${document.title.split(' - ')[0]}」</span>`;
+    const text = '안녕! 만나서 반가워요!';
     let from;
     if (document.referrer !== '') {
       const referrer = new URL(document.referrer),
@@ -71,7 +71,7 @@ function loadWidget(config: Config) {
 
       if (domain in domains) from = domains[domain as keyof typeof domains];
       else from = referrer.hostname;
-      return `Hello！来自 <span>${from}</span> 的朋友<br>${text}`;
+      return `Hello! <span>${from}</span><br>${text}`;
     }
     return text;
   }
@@ -161,8 +161,8 @@ function loadWidget(config: Config) {
     );
     if (modelId === null) {
       // 首次访问加载 指定模型 的 指定材质
-      modelId = 1; // 模型 ID
-      modelTexturesId = 53; // 材质 ID
+      modelId = 4; // 模型 ID
+      modelTexturesId = 83; // 材质 ID
     }
     void model.loadModel(modelId, modelTexturesId, '');
     fetch(config.waifuPath)
@@ -181,7 +181,7 @@ function initWidget(config: string | Config, apiPath?: string) {
   document.body.insertAdjacentHTML(
     'beforeend',
     `<div id="waifu-toggle">
-       <span>看板娘</span>
+       <span>Show Waifu</span>
      </div>`,
   );
   const toggle = document.getElementById('waifu-toggle');

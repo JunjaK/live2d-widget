@@ -42,7 +42,7 @@ function loadWidget(config) {
                 }
             }
         }
-        var text = "\u6B22\u8FCE\u9605\u8BFB<span>\u300C".concat(document.title.split(' - ')[0], "\u300D</span>");
+        var text = '안녕! 만나서 반가워요!';
         var from;
         if (document.referrer !== '') {
             var referrer = new URL(document.referrer), domain = referrer.hostname.split('.')[1];
@@ -57,7 +57,7 @@ function loadWidget(config) {
                 from = domains[domain];
             else
                 from = referrer.hostname;
-            return "Hello\uFF01\u6765\u81EA <span>".concat(from, "</span> \u7684\u670B\u53CB<br>").concat(text);
+            return "Hello! <span>".concat(from, "</span><br>").concat(text);
         }
         return text;
     }
@@ -84,6 +84,7 @@ function loadWidget(config) {
         showMessage(welcomeMessage(result.time), 7000, 11);
         window.addEventListener('mouseover', function (event) {
             var _a;
+            // eslint-disable-next-line prefer-const
             for (var _i = 0, _b = result.mouseover; _i < _b.length; _i++) {
                 var _c = _b[_i], selector = _c.selector, text = _c.text;
                 if (!((_a = event.target) === null || _a === void 0 ? void 0 : _a.closest(selector)))
@@ -99,6 +100,7 @@ function loadWidget(config) {
         });
         window.addEventListener('click', function (event) {
             var _a;
+            // eslint-disable-next-line prefer-const
             for (var _i = 0, _b = result.click; _i < _b.length; _i++) {
                 var _c = _b[_i], selector = _c.selector, text = _c.text;
                 if (!((_a = event.target) === null || _a === void 0 ? void 0 : _a.closest(selector)))
@@ -139,8 +141,8 @@ function loadWidget(config) {
         var modelTexturesId = Number(localStorage.getItem('modelTexturesId'));
         if (modelId === null) {
             // 首次访问加载 指定模型 的 指定材质
-            modelId = 1; // 模型 ID
-            modelTexturesId = 53; // 材质 ID
+            modelId = 4; // 模型 ID
+            modelTexturesId = 83; // 材质 ID
         }
         void model.loadModel(modelId, modelTexturesId, '');
         fetch(config.waifuPath)
@@ -155,7 +157,7 @@ function initWidget(config, apiPath) {
             apiPath: apiPath,
         };
     }
-    document.body.insertAdjacentHTML('beforeend', "<div id=\"waifu-toggle\">\n       <span>\u770B\u677F\u5A18</span>\n     </div>");
+    document.body.insertAdjacentHTML('beforeend', "<div id=\"waifu-toggle\">\n       <span>Show Waifu</span>\n     </div>");
     var toggle = document.getElementById('waifu-toggle');
     toggle === null || toggle === void 0 ? void 0 : toggle.addEventListener('click', function () {
         toggle.classList.remove('waifu-toggle-active');

@@ -50,7 +50,7 @@ var tools = {
     photo: {
         icon: fa_camera_retro,
         callback: function () {
-            showMessage('照好了嘛，是不是很可爱呢？', 6000, 9);
+            showMessage('사진이 찍혔어요!', 6000, 9);
             Live2D.captureName = 'photo.png';
             Live2D.captureFrame = true;
         },
@@ -65,7 +65,7 @@ var tools = {
         icon: fa_xmark,
         callback: function () {
             localStorage.setItem('waifu-display', Date.now().toString());
-            showMessage('愿你有一天能与重要的人重逢。', 2000, 11);
+            showMessage('다시 만나요!', 2000, 11);
             var waifu = document.getElementById('waifu');
             if (!waifu)
                 return;

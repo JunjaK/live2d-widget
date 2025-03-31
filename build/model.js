@@ -120,7 +120,7 @@ var Model = /** @class */ (function () {
                     case 2:
                         target = randomSelection(this.modelList.models[modelId]);
                         loadlive2d('live2d', "".concat(this.cdnPath, "model/").concat(target, "/index.json"));
-                        showMessage('我的新衣服好看嘛？', 4000, 10);
+                        showMessage('제 새 옷 예쁘죠?', 4000, 10);
                         return [3 /*break*/, 4];
                     case 3:
                         // Optional "rand" (Random), "switch" (Switch by order)
@@ -129,10 +129,10 @@ var Model = /** @class */ (function () {
                             .then(function (result) {
                             if (result.textures.id === 1 &&
                                 (modelTexturesId === 1 || modelTexturesId === 0)) {
-                                showMessage('我还没有其他衣服呢！', 4000, 10);
+                                showMessage('아직 다른 옷이 없어요!', 4000, 10);
                             }
                             else if (modelId) {
-                                _this.loadModel(modelId, result.textures.id, '我的新衣服好看嘛？');
+                                _this.loadModel(modelId, result.textures.id, '제 새 옷 예쁘죠?');
                             }
                         });
                         _a.label = 4;
