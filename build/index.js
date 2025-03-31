@@ -137,8 +137,9 @@ function loadWidget(config) {
         });
     }
     (function initModel() {
-        var modelId = Number(localStorage.getItem('modelId'));
-        var modelTexturesId = Number(localStorage.getItem('modelTexturesId'));
+        var _a, _b;
+        var modelId = Number((_a = localStorage.getItem('modelId')) !== null && _a !== void 0 ? _a : 4);
+        var modelTexturesId = Number((_b = localStorage.getItem('modelTexturesId')) !== null && _b !== void 0 ? _b : 83);
         if (modelId === null) {
             // 首次访问加载 指定模型 的 指定材质
             modelId = 4; // 模型 ID

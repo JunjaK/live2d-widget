@@ -155,9 +155,9 @@ function loadWidget(config: Config) {
   }
 
   (function initModel() {
-    let modelId: number | null = Number(localStorage.getItem('modelId'));
+    let modelId: number | null = Number(localStorage.getItem('modelId') ?? 4);
     let modelTexturesId: number | null = Number(
-      localStorage.getItem('modelTexturesId'),
+      localStorage.getItem('modelTexturesId') ?? 83,
     );
     if (modelId === null) {
       // 首次访问加载 指定模型 的 指定材质
